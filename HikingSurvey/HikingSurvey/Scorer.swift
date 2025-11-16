@@ -29,3 +29,25 @@ class Scorer {
         return sentimentScore
     }
 }
+
+class LanguageTrack {
+    let tagger = NLTagger(tagSchemes: [.language])
+    
+    func track(_ text: String) -> String {
+        var languageRecon: String = "en"
+        tagger.string = text
+        tagger.enumerateTags(
+            in: text.startIndex..<text.endIndex,
+            unit: .paragraph,
+            scheme: .language,
+            options: []) { tag, _ in
+                if let language = tag?.rawValue {
+                    languageRecon = language
+                    return true
+                }
+                
+                return false
+            }
+        return languageRecon
+    }
+}

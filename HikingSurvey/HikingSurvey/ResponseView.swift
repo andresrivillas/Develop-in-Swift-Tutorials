@@ -19,6 +19,12 @@ struct ResponseView: View {
                     .fill(.white)
                 )
             Spacer()
+            Text("\(response.score)")
+            Text(response.language)
+                .frame(width: 30, height: 30)
+                .background(RoundedRectangle(cornerRadius: 8).fill(.gray))
+                .padding(.trailing, 8)
+                
             Image(systemName: response.sentiment.icon)
                 .frame(width: 30, height: 30)
                 .foregroundStyle(.white)
@@ -35,5 +41,5 @@ struct ResponseView: View {
 }
 
 #Preview {
-    ResponseView(response: Response(text: "I enjoy hiking very much!", score: 1.0))
+    ResponseView(response: Response(text: "I enjoy hiking very much!", score: 0.5, language: "en"))
 }

@@ -12,10 +12,12 @@ struct ContentView: View {
     @State var responses: [Response] = []
     @State private var responseText = ""
     var scorer = Scorer()
+    var languageTrack = LanguageTrack()
     
     func saveResponse(text: String){
         let score = scorer.score(text)
-        let response = Response(text: text, score: score)
+        let language = languageTrack.track(text)
+        let response = Response(text: text, score: score, language: language)
         responses.insert(response, at: 0)
     }
     

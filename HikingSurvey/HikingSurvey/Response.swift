@@ -11,6 +11,7 @@ struct Response: Identifiable {
     var id = UUID()
     var text: String
     var score: Double
+    var language: String 
     
     var sentiment: Sentiment {
         Sentiment(score)
@@ -23,6 +24,10 @@ struct Response: Identifiable {
         "I love everything about hiking: the fresh air, the exercise, the feeling of accomplishment. When can we go next?",
         "There’s a nice, paved trail near my house that I like, but I don't need to get out in the woods.",
         "I enjoy hard hikes. When my heart is pumping and I'm being challenged, I feel great.",
-        "Last time I went hiking I got a thousand bug bites. You won't find me on a trail any time soon!"
+        "Last time I went hiking I got a thousand bug bites. You won't find me on a trail any time soon!",
+        "De las mejores experiencias de mi vida",
+        "La peor experiencia de mi vida",
+        "L'une des meilleures expériences que j'aie jamais vécues",
+        "C'est horrible, je ne le recommanderais jamais à personne."
     ]
 }
