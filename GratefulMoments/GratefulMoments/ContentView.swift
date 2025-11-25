@@ -12,19 +12,18 @@ struct ContentView: View {
     @State private var isPresented: Bool = false
     
     var body: some View {
-        VStack {
-            Button("Create a Grateful Moment") {
-                isPresented = true
+        TabView {
+            Tab("Moments", image: "MomentsTab") {
+                MomentsView()
             }
-            .buttonStyle(.bordered)
-            .sheet(isPresented: $isPresented){
-                MomentEntryView()
+            Tab("Achievements", systemImage: "medal.fill"){
+                AchievementsView()
             }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .sampleDataContainer()
 }
