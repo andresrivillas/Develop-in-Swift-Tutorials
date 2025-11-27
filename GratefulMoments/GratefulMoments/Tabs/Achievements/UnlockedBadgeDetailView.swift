@@ -32,7 +32,9 @@ struct UnlockedBadgeDetailView: View {
                 }
             }
             .padding()
-            .frame(width: 210, height: 210)
+            .frame(width: 210)
+            .frame(minHeight: 225)
+            .fixedSize()
             .multilineTextAlignment(.leading)
             .foregroundStyle(.white)
             .background(badge.details.color.opacity(0.8))
